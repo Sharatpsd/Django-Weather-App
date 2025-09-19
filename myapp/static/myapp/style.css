@@ -1,0 +1,41 @@
+/* Full aesthetic background */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.main-container {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-box {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    max-width: 90%;
+}
+
+.weather-box h1 {
+    font-weight: bold;
+    color: #333;
+}
+
+.btn-primary {
+    background-color: #4a90e2;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #357ABD;
+}
+
+.weather-info img {
+    width: 100px;
+}

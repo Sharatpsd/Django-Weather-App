@@ -12,10 +12,11 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'your-default-secret-key')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'django-weather-app-2wkn.onrender.com',
+    os.getenv('RENDER_EXTERNAL_HOSTNAME', 'localhost'),
     'localhost',
     '127.0.0.1',
 ]
+
 
 # Application definition
 INSTALLED_APPS = [

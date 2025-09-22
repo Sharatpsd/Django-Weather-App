@@ -1,41 +1,238 @@
-/* Full aesthetic background */
+/* Import Google Fonts if not loaded in HTML (fallback) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Base Styles */
 body, html {
     height: 100%;
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 
 .main-container {
-    background: linear-gradient(to right, #6a11cb, #2575fc);
-    height: 100%;
+    /* Enhanced animated gradient background for 'wow' effect */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    position: relative;
 }
 
+/* Animated background particles (subtle stars/clouds for weather theme) */
+.main-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: sparkle 20s linear infinite;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes sparkle {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-100px); }
+}
+
+/* App Header */
+.app-header {
+    z-index: 2;
+}
+
+.app-header h1 {
+    font-size: 2.5rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.app-header p {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* Weather Box - Glassmorphism Effect */
 .weather-box {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    width: 400px;
-    max-width: 90%;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 40px 30px;
+    border-radius: 24px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    width: 450px;
+    max-width: 95%;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.weather-box h1 {
-    font-weight: bold;
+.weather-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.weather-box h2 {
+    font-weight: 600;
     color: #333;
+    font-size: 1.5rem;
+}
+
+/* Form Enhancements */
+.input-group {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.input-group .form-control {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group .form-control:focus {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+    transform: scale(1.02);
 }
 
 .btn-primary {
-    background-color: #4a90e2;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
     border: none;
+    padding: 15px 25px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
 }
 
 .btn-primary:hover {
-    background-color: #357ABD;
+    background: linear-gradient(135deg, #357abd, #2a5f99);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
 }
 
-.weather-info img {
-    width: 100px;
+/* Weather Card */
+.weather-card {
+    z-index: 2;
+}
+
+.weather-card .card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.weather-card .card:hover {
+    transform: scale(1.02);
+}
+
+.weather-icon {
+    width: 120px !important;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    transition: transform 0.3s ease;
+}
+
+.weather-icon.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Footer */
+.app-footer {
+    z-index: 2;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Animations for 'Wow' Factor */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.8s ease-out;
+}
+
+.animate-fade-in-delay {
+    animation: fadeIn 1s ease-out 0.5s both;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 10px;
+        height: 100vh;
+    }
+    
+    .weather-box {
+        padding: 30px 20px;
+        width: 100%;
+        max-width: none;
+    }
+    
+    .app-header h1 {
+        font-size: 2rem;
+    }
+    
+    .weather-card .row {
+        text-align: center;
+    }
+    
+    .weather-icon {
+        width: 80px !important;
+        margin-bottom: 15px;
+    }
+    
+    .display-4 {
+        font-size: 3rem;
+    }
+}
+
+/* Utility Classes */
+.text-white-50 {
+    color: rgba(255, 255, 255, 0.5) !important;
 }

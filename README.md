@@ -12,9 +12,6 @@ This project demonstrates **Django fundamentals, REST API integration, and front
 
 Below are real screenshots of the application interface and functionality:
 
-<p align="center">
-  <img src="https://drive.google.com/uc?id=1rPQlIWdEEczYqbBrbDL5GFzihkZSWx43" width="600"/>
-</p>
 
 <p align="center">
   <img src="https://drive.google.com/uc?id=1igWXvf3PoGHn7iHAWNHdhZTlYScJJQ_0" width="600"/>
@@ -85,3 +82,4 @@ python manage.py migrate
 
 # Run development server
 python manage.py runserver
+

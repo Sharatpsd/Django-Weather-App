@@ -1,91 +1,87 @@
-# 🌤️ Django Weather App
+# 🌤️ Django Weather App  
+### (Django + REST API + Frontend)
 
-**Modern Full-Stack Weather Application**  
-Real-time weather dashboard built with **Django**, **Django REST Framework**, and clean frontend templating.
+🔗 **Live Demo:** https://weather-c5n7.onrender.com/
 
-[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Django](https://img.shields.io/badge/Django-4.2+-094067?logo=django&logoColor=white)](https://www.djangoproject.com/)
-[![DRF](https://img.shields.io/badge/Django%20REST%20Framework-3.14+-red)](https://www.django-rest-framework.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Deployed on Render](https://img.shields.io/badge/Deployed%20on-Render-46a2f1?logo=render)](https://render.com)
+A simple and practical **Django-based weather application** that fetches **real-time weather data** for any city using a third-party Weather API.  
+This project demonstrates **Django fundamentals, REST API integration, and frontend rendering** in a clean full-stack workflow.
 
-🔗 **Live Demo:** [https://weather-c5n7.onrender.com/](https://weather-c5n7.onrender.com/)
+---
 
-Clean, responsive weather application that fetches real-time weather data using the **OpenWeatherMap API**.  
-Great starter project demonstrating proper **Django structure**, **REST API consumption**, **environment configuration**, **error handling**, and **production-ready deployment practices**.
+## 🖼️ Application Screenshots
 
-## 📸 Screenshots
+Below are real screenshots of the application interface and functionality:
 
 <p align="center">
-  <img src="https://drive.google.com/uc?id=1HbvnCTmbw3SxwQUqyreQDG1pYnDuW6c5" width="48%" alt="Home - Search"/>
-  <img src="https://drive.google.com/uc?id=1H2v9Uud1FJX8pJU5oPtaqFS3_lGszvnk" width="48%" alt="Weather Result"/>
+  <img src="https://drive.google.com/uc?id=1rPQlIWdEEczYqbBrbDL5GFzihkZSWx43" width="600"/>
 </p>
 
 <p align="center">
-  <img src="https://drive.google.com/uc?id=1Kv9oxkqUhJjy91kMTMpRp6TUYogGzPEL" width="48%" alt="Error Handling"/>
-  <img src="https://drive.google.com/uc?id=10kULKg5AkxL0LDA1iVb1t8-D8DXG7tkU" width="48%" alt="Responsive Design"/>
+  <img src="https://drive.google.com/uc?id=1igWXvf3PoGHn7iHAWNHdhZTlYScJJQ_0" width="600"/>
 </p>
 
 <p align="center">
-  <img src="https://drive.google.com/uc?id=14YzIb_xdjjAmde4yg7svmFzUMXoeP6eh" width="60%" alt="Mobile View"/>
+  <img src="https://drive.google.com/uc?id=19xgyLajiiKIn2Q8Vrv4R6TEAJ757ufT_" width="600"/>
 </p>
 
-> Tip: All screenshots were taken from the live deployment.
+---
 
-## ✨ Features
+## 📌 Key Features
 
-- 🔍 Search current weather by **city name** (supports international cities)
-- 🌡️ Real-time data: temperature (°C/°F), feels like, humidity, wind, condition + icon
-- ⚡ Fast API integration using `requests` library
-- 🛡️ Graceful error handling (invalid city, API failures, rate limits)
-- 🎨 Clean, responsive UI (mobile-friendly)
-- 🔐 Secure API key handling via `.env` / environment variables
-- 🚀 Production-ready deployment configuration (Render, gunicorn, static files)
-- 📡 RESTful endpoint `/api/weather/<city>/` (JSON response)
+- 🌍 Search current weather by **city name**
+- 🔌 Fetches **real-time data** from a Weather REST API
+- 🌡️ Displays temperature, humidity, and weather condition
+- ⚠️ Handles invalid city names gracefully
+- 🎨 Clean and simple user interface
+- 🚀 Live deployed application
 
-## 🏗️ Tech Stack
+---
 
-| Layer         | Technology                            | Purpose                              |
-|---------------|---------------------------------------|--------------------------------------|
-| Backend       | Django 4.x                            | Web framework                        |
-| API           | Django REST Framework                 | REST API layer (optional)            |
-| HTTP Client   | requests                              | Weather API consumption              |
-| Frontend      | Django Templates + HTML5 + CSS3       | Server-side rendering                |
-| Styling       | Custom CSS / Bootstrap (optional)     | Responsive layout                    |
-| API           | OpenWeatherMap                        | Real-time weather data               |
-| Database      | SQLite (dev) • PostgreSQL (prod rec.) | Data persistence                     |
-| Deployment    | Render / Heroku-compatible            | Free / low-cost hosting              |
-| Environment   | python-dotenv                         | Secure configuration                 |
+## 🧠 What This Project Demonstrates
 
-## ⚡ Quick Start (Local Development)
+- Django project & app structure  
+- URL → View → Template workflow  
+- REST API consumption using `requests`  
+- JSON response parsing  
+- Secure handling of API keys using environment variables  
+- Basic deployment experience  
+
+> This is a **beginner to intermediate level Django project**.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend:** Django, Django REST Framework  
+- **Frontend:** HTML, CSS, Django Templates  
+- **API:** OpenWeatherMap (or similar weather API)  
+- **Database:** SQLite (development)  
+- **Deployment:** Render  
+- **Language:** Python 3.x  
+
+---
+
+## ⚙️ Local Setup & Installation
 
 ```bash
-# 1. Clone the repository
+# Clone the repository
 git clone https://github.com/Sharatpsd/Django-Weather-App.git
 cd Django-Weather-App
 
-# 2. Create & activate virtual environment
+# Create virtual environment
 python -m venv venv
+
+# Activate virtual environment
 # Windows
 venv\Scripts\activate
 # macOS / Linux
 source venv/bin/activate
 
-# 3. Install dependencies
+# Install dependencies
 pip install -r requirements.txt
 
-# 4. Create .env file (very important!)
-cp .env.example .env    # if .env.example exists — otherwise create manually
-
-# Edit .env and add your OpenWeatherMap key:
-# SECRET_KEY=your-very-long-random-django-secret-key
-# DEBUG=True
-# ALLOWED_HOSTS=localhost,127.0.0.1
-
-# 5. Apply migrations & create superuser (optional)
+# Apply migrations
 python manage.py migrate
-python manage.py createsuperuser    # optional
 
-# 6. Run the development server
+# Run development server
 python manage.py runserver
-
